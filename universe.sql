@@ -88,7 +88,7 @@ ALTER SEQUENCE public.asteroid_asteroid_id_seq OWNED BY public.asteroid.asteroid
 CREATE TABLE public.galaxy (
     galaxy_id integer NOT NULL,
     name character varying(30) NOT NULL,
-    weight_mo numeric(16,2),
+    solar_mass numeric(16,2),
     distance_from_earth_ly numeric(16,2),
     is_rotating boolean,
     is_spiral boolean
@@ -126,7 +126,7 @@ ALTER SEQUENCE public.galaxy_galaxy_id_seq OWNED BY public.galaxy.galaxy_id;
 CREATE TABLE public.moon (
     moon_id integer NOT NULL,
     name character varying(30) NOT NULL,
-    weight numeric(10,9),
+    earth_mass numeric(10,9),
     radius numeric(10,4),
     is_spherical boolean,
     planet_id integer NOT NULL
@@ -164,7 +164,7 @@ ALTER SEQUENCE public.moon_moon_seq OWNED BY public.moon.moon_id;
 CREATE TABLE public.planet (
     planet_id integer NOT NULL,
     name character varying(30),
-    mass_mo numeric(12,9),
+    solar_mass numeric(12,9),
     radius_km numeric(8,2),
     description text,
     star_id integer NOT NULL
@@ -202,8 +202,8 @@ ALTER SEQUENCE public.planet_planet_id_seq OWNED BY public.planet.planet_id;
 CREATE TABLE public.star (
     star_id integer NOT NULL,
     name character varying(30),
-    weight_mo numeric(10,2),
-    radius_ro numeric(10,2),
+    solar_mass numeric(10,2),
+    solar_radius numeric(10,2),
     description text,
     galaxy_id integer NOT NULL,
     class character varying(3)
